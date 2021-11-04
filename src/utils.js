@@ -31,20 +31,28 @@ const throwError = (message) => {
 
 const createShiftsChain = (templateString) => {
     if (templateString.length > 2 && !templateString.includes('-')) {
-        throwError('Incorrect template. Use "-" to separate inctructions')
+        throwError(
+            `Incorrect template "${templateString}". Provide config with template`
+        )
     }
 
     const templates = templateString.split('-')
     const shifts = templates.map((template) => {
         if (template === '') {
-            throwError(`This template: ${template} incorrect`)
+            throwError(
+                `This template: "${templateString}" incorrect. Symbol "-" should bind instruction, but it's empty`
+            )
         }
         if (template.length > 2) {
-            throwError(`This template: ${template} incorrect`)
+            throwError(
+                `This template: "${templateString}" incorrect. Instruction must contain  maximum 2 symbols`
+            )
         }
         if (template.length === 1) {
             if (!ciphersCodes.includes(template)) {
-                throwError(`Unknown cipher ${template}. Possible: A, C, R`)
+                throwError(
+                    `Unknown cipher "${template}". Possible options: A, C, R`
+                )
             }
             if (template !== 'A') {
                 throwError(
@@ -53,16 +61,21 @@ const createShiftsChain = (templateString) => {
             }
             return defaultShifts[template]
         }
+
         if (template.length === 2) {
             if (!ciphersCodes.includes(template[0])) {
-                throwError(`Unknown cipher ${template}`)
+                throwError(
+                    `Unknown cipher "${template}". Possible options: A, C, R`
+                )
             }
             if (template[0] === 'A') {
-                throwError(`Atbash mustnt has number`)
+                throwError(
+                    `Atbash should not contain a digital parameter. This is incorrect: "${template}"`
+                )
             }
             if (!validationCoding.includes(template[1])) {
                 throwError(
-                    `Cipher ${template} must be provided with 1 for decoding or 0 for encoding`
+                    `Cipher ${template} must be provided with 1 for decoding or 0 for encoding. This is incorrect: "${template}"`
                 )
             }
             return defaultShifts[template]

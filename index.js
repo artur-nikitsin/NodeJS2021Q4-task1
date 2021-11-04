@@ -9,7 +9,7 @@ const options = {}
 const write = fs.createWriteStream(pathWrite, options)
 const read = fs.createReadStream(pathRead, options)
 
-const test2 = 'A-A-A-R1-R0-R0-R0-C1-C1-A'
+const test2 = 'R1-'
 
 const shiftsChain = createShiftsChain(test2)
 
