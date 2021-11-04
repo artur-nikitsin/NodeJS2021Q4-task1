@@ -1,4 +1,4 @@
-const CustomTransformSteam = require('./customTransformSteam')
+const CustomTransformStream = require('./customTransformSteam')
 const CustomReadSteam = require('./customReadSteam')
 
 const customSteams = {
@@ -6,8 +6,8 @@ const customSteams = {
         return new CustomReadSteam(props)
     },
 
-    createCustomTransformSteam(props) {
-        return new CustomTransformSteam(props)
+    createCustomTransformStream(props) {
+        return new CustomTransformStream(props)
     },
 }
 
