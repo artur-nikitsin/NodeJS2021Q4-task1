@@ -16,14 +16,12 @@ class CustomTransformStream extends Transform {
             const prevIndex = alphabet.indexOf(symbol.toLowerCase())
 
             if (alphabet.includes(symbol.toLowerCase())) {
-                console.log('prevIndex', prevIndex)
                 const nextIndex = shiftPosition({
                     prevIndex,
                     shift: this.shift,
                     alphabet,
                 })
-                console.log('nextIndex', nextIndex)
-                console.log('alphabet[nextIndex]', alphabet[nextIndex])
+
                 if (isUpperCase) {
                     return alphabet[nextIndex].toUpperCase()
                 }

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon --watch",
+    "start": "node index.js  C1-C0 -i ./input/input.txt -o ./output/output.txt -o",
     "test": "test"
   },
   "repository": {
