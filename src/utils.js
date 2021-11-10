@@ -1,3 +1,9 @@
+const {
+    ciphersCodes,
+    validationCoding,
+    defaultShifts,
+} = require('./configurationConstants')
+
 const shiftPosition = ({ prevIndex, shift, alphabet }) => {
     const alphabetLength = alphabet.length
     if (shift === 'reverse') {
@@ -12,16 +18,6 @@ const shiftPosition = ({ prevIndex, shift, alphabet }) => {
         return alphabetLength + (prevIndex + shift)
     }
     return Math.abs(prevIndex + shift)
-}
-
-const ciphersCodes = ['C', 'R', 'A']
-const validationCoding = ['1', '0']
-const defaultShifts = {
-    C1: 1,
-    C0: -1,
-    R1: 8,
-    R0: -8,
-    A: 'reverse',
 }
 
 const throwError = (message) => {
@@ -75,7 +71,7 @@ const createShiftsChain = (templateString) => {
             }
             if (!validationCoding.includes(template[1])) {
                 throwError(
-                    `Cipher ${template} must be provided with 1 for decoding or 0 for encoding. This is incorrect: "${template}"`
+                    `Cipher ${template} must be provided with 1 for decoding or 0 for encoding. This is incorrect: "${templateString}"`
                 )
             }
             return defaultShifts[template]

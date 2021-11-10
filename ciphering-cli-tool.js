@@ -13,12 +13,12 @@ const pathWrite = parseOption({ options: appArguments, criteria: '-o' })
 
 if (pathRead) {
     if (!fs.existsSync(pathRead)) {
-        throwError('read not found')
+        throwError(`File with path ${pathRead} not found`)
     }
 }
 if (pathWrite) {
     if (!fs.existsSync(pathWrite)) {
-        throwError('write not found')
+        throwError(`File with path ${pathRead} not found`)
     }
 }
 
