@@ -2,10 +2,10 @@
   "name": "nodejs2021q4-task1",
   "version": "1.0.0",
   "description": "task #1",
-  "main": "index.js",
+  "main": "ciphering-cli-tool.js",
   "scripts": {
     "start:dev": "nodemon --watch",
-    "start": "node index.js -c C1-C0  input.txt -o output.txt",
+    "start": "node ciphering-cli-tool.js -c C1-C0-A -i input.txt -o output.txt",
     "test": "test"
   },
   "repository": {

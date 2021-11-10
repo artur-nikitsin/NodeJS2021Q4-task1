@@ -23,10 +23,10 @@ if (pathWrite) {
 }
 
 const options = {}
-const write = pathWrite
-    ? fs.createWriteStream(pathWrite, options)
-    : fs.createWriteStream('output.txt', options)
 const read = pathRead ? fs.createReadStream(pathRead, options) : process.stdin
+const write = pathWrite
+    ? fs.createWriteStream(pathWrite, { flags: 'a' })
+    : process.stdout
 
 const shiftsChain = createShiftsChain(configOption)
 
