@@ -1,20 +1,15 @@
 # Ciphering CLI Tool
 
-
-
 To run project open your terminal and execute next steps:
 
 1. Clone the project:
-<br />
 `git clone git@github.com:artur-nikitsin/NodeJS2021Q4-task1.git`
 
 2. Enter to the root project directory in which "ciphering-cli-tool.js" is exists:
-<br />
 `cd NodeJS2021Q4-task1`
 
 3. Execute next command:
-
-``node ciphering-cli-tool.js -c ${CIPHER_OPTION} -i ${INPUT_FILE_OPTION} -o ${OUTPUT_FILE_OPTION}``
+`node ciphering-cli-tool.js -c ${CIPHER_OPTION} -i ${INPUT_FILE_OPTION} -o ${OUTPUT_FILE_OPTION}`
 
 Where:
 
