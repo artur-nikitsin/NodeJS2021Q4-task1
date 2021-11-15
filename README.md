@@ -8,7 +8,10 @@ To run project open your terminal and execute next steps:
 2. Enter to the root project directory in which "ciphering-cli-tool.js" is exists:
 `cd NodeJS2021Q4-task1`
 
-3. Execute next command:
+3. Checkout to develop branch:
+`git checkout develop`
+
+5. Execute next command:
 `node ciphering-cli-tool.js -c ${CIPHER_OPTION} -i ${INPUT_FILE_OPTION} -o ${OUTPUT_FILE_OPTION}`
 
 Where:
