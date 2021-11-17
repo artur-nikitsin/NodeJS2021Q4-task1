@@ -1,4 +1,9 @@
-const { shiftPosition } = require('../utils')
+const {
+    throwError,
+    shiftPosition,
+    createShiftsChain,
+    parseOption,
+} = require('../utils')
 const alphabet = require('../alphabet')
 
 describe('test shiftPosition util function', () => {
@@ -12,5 +17,18 @@ describe('test shiftPosition util function', () => {
         expect(
             shiftPosition({ prevIndex: 0, shift: 'reverse', alphabet })
         ).toEqual(25)
+    })
+})
+
+describe('test throwError util function', () => {
+    it('tests throwError with process.exit and error message', async () => {
+        const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {
+            throw new Error('Error message')
+        })
+        expect(() => {
+            throwError('Error message')
+        }).toThrow('Error message')
+        expect(mockExit).toHaveBeenCalledWith(1)
+        mockExit.mockRestore()
     })
 })

@@ -6,7 +6,8 @@
   "scripts": {
     "start:dev": "nodemon --watch",
     "start": "`node ciphering-cli-tool.js -c C1-C0-A -i input.txt -o output.txt`",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
