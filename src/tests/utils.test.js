@@ -13,6 +13,9 @@ describe('test shiftPosition util function', () => {
     it('returned shift must be 0 ', () => {
         expect(shiftPosition({ prevIndex: 25, shift: 1, alphabet })).toEqual(0)
     })
+    it('returned shift must be 19 ', () => {
+        expect(shiftPosition({ prevIndex: 1, shift: -8, alphabet })).toEqual(19)
+    })
     it('returned shift must be 2 ', () => {
         expect(
             shiftPosition({ prevIndex: 0, shift: 'reverse', alphabet })
@@ -62,6 +65,79 @@ describe('test createShiftsChain util function', () => {
         expect(mockExit).toHaveBeenCalledWith(1)
         mockExit.mockRestore()
     })
+
+    it('throw error on invalid config', () => {
+        const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {
+            throw new Error('Error message')
+        })
+        expect(() => {
+            createShiftsChain('C10')
+        }).toThrow('Error message')
+        expect(mockExit).toHaveBeenCalledWith(1)
+        mockExit.mockRestore()
+    })
+    it('throw error on invalid config', () => {
+        const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {
+            throw new Error('Error message')
+        })
+        expect(() => {
+            createShiftsChain('C1-')
+        }).toThrow('Error message')
+        expect(mockExit).toHaveBeenCalledWith(1)
+        mockExit.mockRestore()
+    })
+    it('throw error on invalid config', () => {
+        const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {
+            throw new Error('Error message')
+        })
+        expect(() => {
+            createShiftsChain('C10-R1')
+        }).toThrow('Error message')
+        expect(mockExit).toHaveBeenCalledWith(1)
+        mockExit.mockRestore()
+    })
+    it('throw error on invalid config', () => {
+        const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {
+            throw new Error('Error message')
+        })
+        expect(() => {
+            createShiftsChain('M1-R1')
+        }).toThrow('Error message')
+        expect(mockExit).toHaveBeenCalledWith(1)
+        mockExit.mockRestore()
+    })
+    it('throw error on invalid config', () => {
+        const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {
+            throw new Error('Error message')
+        })
+        expect(() => {
+            createShiftsChain('A1-R1')
+        }).toThrow('Error message')
+        expect(mockExit).toHaveBeenCalledWith(1)
+        mockExit.mockRestore()
+    })
+
+    it('throw error on invalid config', () => {
+        const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {
+            throw new Error('Error message')
+        })
+        expect(() => {
+            createShiftsChain('M-E')
+        }).toThrow('Error message')
+        expect(mockExit).toHaveBeenCalledWith(1)
+        mockExit.mockRestore()
+    })
+
+    it('throw error on invalid config', () => {
+        const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {
+            throw new Error('Error message')
+        })
+        expect(() => {
+            createShiftsChain('R-R')
+        }).toThrow('Error message')
+        expect(mockExit).toHaveBeenCalledWith(1)
+        mockExit.mockRestore()
+    })
 })
 
 describe('test parseOption util function', () => {
@@ -90,5 +166,10 @@ describe('test parseOption util function', () => {
         const expectedString = 'C1-C0-A'
         const options = ['-c', expectedString]
         expect(parseOption({ options, criteria: '-c' })).toEqual(expectedString)
+    })
+
+    it('returned shift must be null ', () => {
+        const options = ['-c', 'C1-C0-A']
+        expect(parseOption({ options, criteria: '-m' })).toEqual(null)
     })
 })
