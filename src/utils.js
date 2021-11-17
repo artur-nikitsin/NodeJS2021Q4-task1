@@ -7,7 +7,7 @@ const {
 const shiftPosition = ({ prevIndex, shift, alphabet }) => {
     const alphabetLength = alphabet.length
     if (shift === 'reverse') {
-        const reversedAlphabet = alphabet.reverse()
+        const reversedAlphabet = [...alphabet].reverse()
         const symbol = alphabet[prevIndex]
         return reversedAlphabet.indexOf(symbol)
     }
