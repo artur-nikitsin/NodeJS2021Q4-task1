@@ -1,4 +1,4 @@
-const { throwError } = require('./throwError')
+const throwError = require('./throwError')
 
 const parseOption = ({ options, criteria }) => {
     const duplicates = options.filter((option) => option === criteria)
