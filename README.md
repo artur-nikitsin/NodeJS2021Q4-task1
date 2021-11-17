@@ -16,8 +16,17 @@ To run project open your terminal and execute next steps:
 
 Where:
 
-`-c` - option provide cipher config, which must has format: `{XY(-)}n`. For example: `C1-C1-R0-A`
+`-c` - option provide cipher config, which must has format: `{XY(-)}n`, where:
+  * `X` is a cipher mark:
+    * `C` is for Caesar cipher (with shift 1)
+    * `A` is for Atbash cipher
+    * `R` is for ROT-8 cipher
+  * `Y` is flag of encoding or decoding (mandatory for Caesar cipher and ROT-8 cipher and should not be passed Atbash cipher)
+    * `1` is for encoding
+    * `0` is for decoding
+For example: `C1-C1-R0-A`
 <br />
+
 `-i` - option provide path to input file. For example: `input.txt`
 <br />
 `-o` - option provide path to output file. For example: `output.txt`
