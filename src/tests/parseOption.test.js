@@ -3,7 +3,7 @@ const { createMockExit } = require('../testUtils/testUtils')
 
 describe('test parseOption util function', () => {
     it('throw error on options duplicated', async () => {
-        const mockExit = createMockExit('Error message')
+        const mockExit = createMockExit('1')
         const options = [
             '-c',
             'C1-C0-A',
@@ -16,7 +16,7 @@ describe('test parseOption util function', () => {
         ]
         expect(() => {
             parseOption({ options, criteria: '-c' })
-        }).toThrow('Error message')
+        }).toThrow('1')
         expect(mockExit).toHaveBeenCalledWith(1)
         mockExit.mockRestore()
     })

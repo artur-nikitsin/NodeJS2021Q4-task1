@@ -3,10 +3,10 @@ const { createMockExit } = require('../testUtils/testUtils')
 
 describe('test throwError util function', () => {
     it('tests throwError with process.exit and error message', async () => {
-        const mockExit = createMockExit('Error message')
+        const mockExit = createMockExit('1')
         expect(() => {
-            throwError('Error message')
-        }).toThrow('Error message')
+            throwError('1')
+        }).toThrow('1')
         expect(mockExit).toHaveBeenCalledWith(1)
         mockExit.mockRestore()
     })
