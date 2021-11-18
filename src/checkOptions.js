@@ -1,7 +1,7 @@
 const fs = require('fs')
-const { throwError } = require('./throwError')
+const throwError = require('./utils/throwError')
 
-const checkOptionsExistence = ({ configOption, pathRead, pathWrite }) => {
+const checkOptions = ({ configOption, pathRead, pathWrite }) => {
     if (!configOption) {
         throwError('Config option "-c" not provided')
     }
@@ -13,9 +13,9 @@ const checkOptionsExistence = ({ configOption, pathRead, pathWrite }) => {
     }
     if (pathWrite) {
         if (!fs.existsSync(pathWrite)) {
-            throwError(`File with path ${pathRead} not found`)
+            throwError(`File with path ${pathWrite} not found`)
         }
     }
 }
 
-module.exports = checkOptionsExistence
+module.exports = checkOptions

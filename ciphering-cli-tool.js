@@ -1,14 +1,14 @@
 const fs = require('fs')
 const { createShiftsChain, parseOption } = require('./src/utils')
 const createStreamsChain = require('./src/utils/createStreamsChain')
-const checkOptionsExistence = require('./src/utils/checkOptionsExistance')
+const checkOptions = require('./src/checkOptions')
 
 const appArguments = process.argv
 const configOption = parseOption({ options: appArguments, criteria: '-c' })
 const pathRead = parseOption({ options: appArguments, criteria: '-i' })
 const pathWrite = parseOption({ options: appArguments, criteria: '-o' })
 
-checkOptionsExistence({ configOption, pathRead, pathWrite })
+checkOptions({ configOption, pathRead, pathWrite })
 
 const options = {}
 const read = pathRead ? fs.createReadStream(pathRead, options) : process.stdin
