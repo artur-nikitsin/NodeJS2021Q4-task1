@@ -1,9 +1,9 @@
 const { parseOption } = require('../utils')
-const { createMockExit } = require('../testUtils/testUtils')
+const { createMockStdErr } = require('../testUtils/testUtils')
 
 describe('test parseOption util function', () => {
-    it('throw error on options duplicated', async () => {
-        const mockExit = createMockExit('1')
+    it('throw error on options duplicated with message: Duplicate option "-c"', async () => {
+        const mockStdErr = createMockStdErr()
         const options = [
             '-c',
             'C1-C0-A',
@@ -16,9 +16,9 @@ describe('test parseOption util function', () => {
         ]
         expect(() => {
             parseOption({ options, criteria: '-c' })
-        }).toThrow('1')
-        expect(mockExit).toHaveBeenCalledWith(1)
-        mockExit.mockRestore()
+        }).toThrow('Duplicate option "-c"')
+        expect(mockStdErr).toBeCalledTimes(1)
+        mockStdErr.mockRestore()
     })
 
     it('returned shift must be 2 ', () => {

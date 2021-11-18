@@ -4,12 +4,12 @@ const customStreams = require('./src/customSteams')
 
 const appArguments = process.argv
 const configOption = parseOption({ options: appArguments, criteria: '-c' })
+const pathRead = parseOption({ options: appArguments, criteria: '-i' })
+const pathWrite = parseOption({ options: appArguments, criteria: '-o' })
+
 if (!configOption) {
     throwError('Config option "-c" not provided')
 }
-
-const pathRead = parseOption({ options: appArguments, criteria: '-i' })
-const pathWrite = parseOption({ options: appArguments, criteria: '-o' })
 
 if (pathRead) {
     if (!fs.existsSync(pathRead)) {
