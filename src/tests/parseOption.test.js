@@ -21,13 +21,13 @@ describe('test parseOption util function', () => {
         mockStdErr.mockRestore()
     })
 
-    it('returned shift must be 2 ', () => {
+    it('returned option value must be C1-C0-A', () => {
         const expectedString = 'C1-C0-A'
         const options = ['-c', expectedString]
         expect(parseOption({ options, criteria: '-c' })).toEqual(expectedString)
     })
 
-    it('returned shift must be null ', () => {
+    it('returned option value must be null', () => {
         const options = ['-c', 'C1-C0-A']
         expect(parseOption({ options, criteria: '-m' })).toEqual(null)
     })

@@ -9,7 +9,7 @@ const transformStream = customStreams.createCustomTransformStream({
 
 describe('test transformStream', () => {
     it('tests transformStream', async () => {
-        transformStream.on('end', (something) => {
+        transformStream.on('data', (something) => {
             console.log(something)
         })
     })
