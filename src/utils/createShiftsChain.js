@@ -1,29 +1,9 @@
+const throwError = require('./throwError')
 const {
     ciphersCodes,
     validationCoding,
     defaultShifts,
-} = require('./configurationConstants')
-
-const shiftPosition = ({ prevIndex, shift, alphabet }) => {
-    const alphabetLength = alphabet.length
-    if (shift === 'reverse') {
-        const reversedAlphabet = alphabet.reverse()
-        const symbol = alphabet[prevIndex]
-        return reversedAlphabet.indexOf(symbol)
-    }
-    if (prevIndex + shift >= alphabetLength) {
-        return Math.abs(prevIndex + shift - alphabetLength)
-    }
-    if (prevIndex + shift < 0) {
-        return alphabetLength + (prevIndex + shift)
-    }
-    return Math.abs(prevIndex + shift)
-}
-
-const throwError = (message) => {
-    process.stderr.write(message)
-    process.exit(1)
-}
+} = require('../configurationConstants')
 
 const createShiftsChain = (templateString) => {
     if (templateString.length > 2 && !templateString.includes('-')) {
@@ -80,25 +60,4 @@ const createShiftsChain = (templateString) => {
     return shifts
 }
 
-const parseOption = ({ options, criteria }) => {
-    const duplicates = options.filter((option) => option === criteria)
-
-    if (duplicates.length > 1) {
-        throwError(`Duplicate option "${criteria}"`)
-    }
-
-    const index = options.indexOf(criteria)
-    if (index === -1) {
-        return null
-    }
-    return options[index + 1]
-}
-
-const utilsIndex = {
-    shiftPosition,
-    createShiftsChain,
-    parseOption,
-    throwError,
-}
-
-module.exports = utilsIndex
+module.exports = createShiftsChain
