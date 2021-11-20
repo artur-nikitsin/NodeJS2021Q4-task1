@@ -62,12 +62,12 @@ For project tests executing open your terminal and execute next steps:
 
 * Error when "-c" config option provided twice
 * Error when "-c" not provided
-* Error when user passed -i argument with path that doesn't exist or with no read access
-* Error when user passed -o argument with path that doesn't exist or with no read access
-* Error when user incorrect symbols in argument for config
-* Test passed when user passes correct sequence of symbols as argument for -c that matches regular expression
-* Test passes when user passed "C1-C1-R0-A" config and output transformed text is correct
-* Test passes when user passed "C1-C0-A-R1-R0-A-R0-R0-C1-A" config and output transformed text is correct
-* Test passes when user passed "A-A-A-R1-R0-R0-R0-C1-C1-A" config and output transformed text is correct
-* Test passes when user passed "C1-R1-C0-C0-A-R0-R1-R1-A-C1" config and output transformed text is correct
+* Error when user passed "-i" argument with path that doesn't exist or with no read access
+* Error when user passed "-o" argument with path that doesn't exist or with no read access
+* Error when user passed incorrect symbols in argument for config
+* Test passed when user passed correct sequence of symbols as argument for -c that matches regular expression
+* Test passed when user passed "C1-C1-R0-A" config and output transformed text is correct
+* Test passed when user passed "C1-C0-A-R1-R0-A-R0-R0-C1-A" config and output transformed text is correct
+* Test passed when user passed "A-A-A-R1-R0-R0-R0-C1-C1-A" config and output transformed text is correct
+* Test passed when user passed "C1-R1-C0-C0-A-R0-R1-R1-A-C1" config and output transformed text is correct
 

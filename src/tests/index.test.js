@@ -26,7 +26,7 @@ describe('Test general app scenarios', () => {
         })
     })
 
-    it("Error when user passed -i argument with path that doesn't exist or with no read access", (done) => {
+    it('Error when user passed "-i" argument with path that doesnt exist or with no read access', (done) => {
         const workerProcess = spawn('node', [
             'ciphering-cli-tool.js',
             '-c',
@@ -42,7 +42,7 @@ describe('Test general app scenarios', () => {
         })
     })
 
-    it("Error when user passed -o argument with path that doesn't exist or with no read access", (done) => {
+    it('Error when user passed "-o" argument with path that doesnt exist or with no read access', (done) => {
         const workerProcess = spawn('node', [
             'ciphering-cli-tool.js',
             '-c',
@@ -58,7 +58,7 @@ describe('Test general app scenarios', () => {
         })
     })
 
-    it('Error when user incorrect symbols in argument for config', (done) => {
+    it('Error when user passed incorrect symbols in argument for config', (done) => {
         const workerProcess = spawn('node', [
             'ciphering-cli-tool.js',
             '-c',
@@ -75,7 +75,7 @@ describe('Test general app scenarios', () => {
     // success scenarios:
 
     it(
-        'Test passed when user passes correct sequence ' +
+        'Test passed when user passed correct sequence ' +
             'of symbols as argument for -c that matches regular expression',
         (done) => {
             const workerProcess = spawn('node', [
@@ -94,7 +94,7 @@ describe('Test general app scenarios', () => {
         }
     )
 
-    it('Test passes when user passed "C1-C1-R0-A" config and output transformed text is correct', (done) => {
+    it('Test passed when user passed "C1-C1-R0-A" config and output transformed text is correct', (done) => {
         const workerProcess = spawn('node', [
             'ciphering-cli-tool.js',
             '-c',
@@ -110,7 +110,7 @@ describe('Test general app scenarios', () => {
         })
     })
 
-    it('Test passes when user passed "C1-C0-A-R1-R0-A-R0-R0-C1-A" config and output transformed text is correct', (done) => {
+    it('Test passed when user passed "C1-C0-A-R1-R0-A-R0-R0-C1-A" config and output transformed text is correct', (done) => {
         const workerProcess = spawn('node', [
             'ciphering-cli-tool.js',
             '-c',
@@ -126,7 +126,7 @@ describe('Test general app scenarios', () => {
         })
     })
 
-    it('Test passes when user passed "A-A-A-R1-R0-R0-R0-C1-C1-A" config and output transformed text is correct', (done) => {
+    it('Test passed when user passed "A-A-A-R1-R0-R0-R0-C1-C1-A" config and output transformed text is correct', (done) => {
         const workerProcess = spawn('node', [
             'ciphering-cli-tool.js',
             '-c',
@@ -142,7 +142,7 @@ describe('Test general app scenarios', () => {
         })
     })
 
-    it('Test passes when user passed "C1-R1-C0-C0-A-R0-R1-R1-A-C1" config and output transformed text is correct', (done) => {
+    it('Test passed when user passed "C1-R1-C0-C0-A-R0-R1-R1-A-C1" config and output transformed text is correct', (done) => {
         const workerProcess = spawn('node', [
             'ciphering-cli-tool.js',
             '-c',
