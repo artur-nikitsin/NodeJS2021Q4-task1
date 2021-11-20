@@ -7,7 +7,7 @@
     "start:dev": "nodemon --watch",
     "start": "node ciphering-cli-tool.js -c C1-C0-A -i input.txt -o odutput.txt",
     "test": "jest",
-    "e2e": "jest src/tests/index.test.js",
+    "e2e-test": "jest src/tests/index.test.js",
     "coverage": "jest --coverage"
   },
   "repository": {
